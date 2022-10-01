@@ -4,9 +4,9 @@
             @if(isset($item['routeName']))
                 <li class="breadcrumb-item">
                     @if(isset($item['params']))
-                        <a href="{{ route( $item['routeName'])}}">{{$item['name']}}</a>
+                        <a href="{{ route( $item['routeName'], $item['params'])}}">{{$item['name']}}</a>
                     @else
-
+                        <a href="{{ route( $item['routeName'])}}">{{$item['name']}}</a>
                     @endif
                 </li>
             @else

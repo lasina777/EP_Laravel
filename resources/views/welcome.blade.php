@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Мой интернет магазин</title>
-    <link rel="stylesheet" href="/public/assets/css/bootstrap.css">
-    <script src = "/public/assets/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <script src = "/assets/js/bootstrap.bundle.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -31,7 +31,7 @@
                     @endguest
                     @auth
                         <li class="nav-item"><a class="nav-link" href="#">Мои заказы</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Мой аккаунт</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('cabinet')}}">Мой аккаунт</a></li>
                         @if(Auth::user()->role == 'admin')
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,6 +45,7 @@
                                 </ul>
                             </li>
                         @endif
+                        <li class="nav-item"><a class="nav-link" href="{{route('order.basket')}}">Корзина</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('logout')}}">Выход</a></li>
                     @endauth
                 </ul>
