@@ -54,18 +54,29 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin.product.show', compact('product'));
+        $breadcrumbs = [
+            ['routeName' => 'welcome', 'name' => 'Главная страница'],
+            ['routeName' => 'admin.product.index', 'name' => 'Все продукты'],
+            ['name' => $product->name],
+        ];
+        return view('admin.product.show', compact('product','breadcrumbs'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(Product $product)
     {
-        //
+        $breadcrumbs = [
+            ['routeName' => 'welcome', 'name' => 'Главная страница'],
+            ['routeName' => 'admin.product.index', 'name' => 'Все продукты'],
+            ['routeName' => 'admin.product.show','params' => ['product' => $product->id], 'name' => $product->name],
+            ['name' => $product->name . ' | Редактирование'],
+        ];
+        return view('admin.product.createOrUpdate', compact('product','breadcrumbs'));
     }
 
     /**
