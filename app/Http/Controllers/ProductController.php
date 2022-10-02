@@ -123,4 +123,12 @@ class ProductController extends Controller
         $products = Product::simplePaginate(25);
         return view('users.product.main', compact('products'));
     }
+
+    public function firstProduct(Product $product){
+        $breadcrumbs = [
+            ['routeName' => 'welcome', 'name' => 'Главная страница'],
+            ['name' => $product->name]
+        ];
+        return view('users.product.first' , compact('product', 'breadcrumbs'));
+    }
 }
