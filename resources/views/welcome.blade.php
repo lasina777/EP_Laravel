@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Мой интернет магазин</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
-    <script src = "/assets/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/public/assets/css/bootstrap.css">
+    <script src = "/public/assets/js/bootstrap.bundle.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -41,7 +41,7 @@
                                     <li><a class="dropdown-item" href="{{route('admin.product.create')}}">Добавить товар</a></li>
                                     <li><a class="dropdown-item" href="{{route('admin.product.index')}}">Все товары</a></li>
                                     <li><a class="dropdown-item" href="{{route('order.all', ['myOrder' => 'admin'])}}">Просмотр заказов</a></li>
-                                    <li><a class="dropdown-item" href="#">Пользователи</a></li>
+                                    <li><a class="dropdown-item" href="{{route('show')}}">Пользователи</a></li>
                                 </ul>
                             </li>
                         @endif

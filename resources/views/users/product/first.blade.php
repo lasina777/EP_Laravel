@@ -11,7 +11,7 @@
                         {{$product->name}}
                     </div>
                     <div class="card-body text-center">
-                        <img src="{{'/storage/' . $product->photo}}" class="card-img-top w-50" alt="{{$product->name}}">
+                        <img src="{{'/public/storage/' . $product->photo}}" class="card-img-top w-50" alt="{{$product->name}}">
                         <p class="card-text">{{$product->descriprion}}</p>
                         <p class="card-text">Стоимость товара: {{$product->price}}</p>
                         <p class="card-text">Страна производства: {{$product->made}}</p>

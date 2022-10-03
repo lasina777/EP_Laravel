@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function (){
             Route::group(['prefix' => '/admin', 'as' => 'admin.'], function (){
                 Route::resource('/product', ProductController::class);
             });
+            Route::get('/show',[UserController::class,'show'])->name('show');
             Route::get('/completed/{order}', [OrderController::class, 'completed'])->name('completed');
         });
 

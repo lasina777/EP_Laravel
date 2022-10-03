@@ -27,7 +27,7 @@
                                 @csrf
                             @foreach($products as $product)
                                 <tr>
-                                    <td><img width="36px" height="36px" alt="" src="/storage/{{$product->photo}}"></td>
+                                    <td><img width="36px" height="36px" alt="" src="/public/storage/{{$product->photo}}"></td>
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->price}}</td>
                                     <td><input type="number" name="productsIds[{{$product->id}}]" class="form-control" value="{{session('basket')[$product->id]}}"></td>
