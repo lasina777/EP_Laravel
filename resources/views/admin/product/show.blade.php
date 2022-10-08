@@ -1,5 +1,6 @@
 @extends('welcome')
 
+{{--Секция для вывода одного продукта(подробно)--}}
 @section('content')
     <dic class="container">
         <div class="row">

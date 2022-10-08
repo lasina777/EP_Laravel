@@ -54,14 +54,30 @@ class UserController extends Controller
         return redirect()->route('login')->with(['register' => 'true']);
     }
 
+    /**
+     * Вызов шаблона с кабинетом
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function cabinet(){
         return view('users.cabinet');
     }
 
+    /**
+     * Вызов шаблона для редактирования кабинета
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function cabinetEdit(){
         return view('users.edit');
     }
 
+    /**
+     * Функция редактирования аккаунта
+     *
+     * @param EditUserValidation $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function cabinetEditPost(EditUserValidation $request){
 
         $arr = $request->validated();
@@ -83,6 +99,11 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
+    /**
+     * Вывод всех пользователей(для админа)
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function show(){
 
         $breadcrumbs = [

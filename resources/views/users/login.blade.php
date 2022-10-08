@@ -1,5 +1,6 @@
 @extends('welcome')
 
+{{--Секция для авторизации--}}
 @section('content')
     <div class="container">
         <div class="row">

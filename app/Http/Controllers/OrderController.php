@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller
 {
     /**
+     * Вызов шаблона с корзиной пользователя
+     *
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -24,6 +26,8 @@ class OrderController extends Controller
     }
 
     /**
+     * Вывод продуктов пользоватлея в корзину
+     *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -37,6 +41,8 @@ class OrderController extends Controller
     }
 
     /**
+     * Добавление в корзину продукта
+     *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -50,6 +56,8 @@ class OrderController extends Controller
     }
 
     /**
+     * Создание заказа
+     *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -78,6 +86,12 @@ class OrderController extends Controller
         return redirect()->route('welcome');
     }
 
+    /**
+     * Вызов шаблона с заказами пользователя или всеми(если это админ)
+     *
+     * @param $myOrder
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function orders($myOrder = 'my'){
         $orders = Order::select('*');
         if (Auth::user()->role == 'user'|| $myOrder =='my')
@@ -87,6 +101,12 @@ class OrderController extends Controller
         return view('orders.view', ['orders' => $orderItems]);
     }
 
+    /**
+     * Функция для отмены заказов
+     *
+     * @param Order $order
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function cancel(Order $order){
         if (Auth::user()->role == 'admin'){
             $order->status = 'Отклонен';
@@ -101,6 +121,12 @@ class OrderController extends Controller
         return back()->with('success', false);
     }
 
+    /**
+     * Функция для завершения заказов
+     *
+     * @param Order $order
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function completed(Order $order){
         $order->status = 'Завершен';
         $order->save();

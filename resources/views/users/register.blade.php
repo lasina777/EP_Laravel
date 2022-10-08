@@ -1,5 +1,6 @@
 @extends('welcome')
 
+{{--Секция для регистрации--}}
 @section('content')
     <div class="container">
         <div class="row">

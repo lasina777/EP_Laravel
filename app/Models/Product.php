@@ -9,5 +9,10 @@ class Product extends Model
 {
     use HasFactory;
 
+    /**
+     * Автоматический массив артрибутов
+     *
+     * @var string[]
+     */
     protected $guarded = ['id'];
 }

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterValidation extends FormRequest
 {
     /**
+     * Определяет авторизован ли пользователь, для выполнения запроса
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -17,6 +18,7 @@ class RegisterValidation extends FormRequest
     }
 
     /**
+     * Правила проверки для запроса
      * Get the validation rules that apply to the request.
      *
      * @return array<string, mixed>

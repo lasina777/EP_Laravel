@@ -1,3 +1,4 @@
+{{--Корневой шаблон с шапкой--}}
 <!doctype html>
 <html lang="ru">
 <head>

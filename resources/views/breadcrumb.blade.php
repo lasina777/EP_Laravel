@@ -1,3 +1,4 @@
+{{--Хлебные крошки--}}
 <nav aria-label="breadcrumb" class = "mt-5">
     <ol class="breadcrumb">
         @forelse($breadcrumbs as $item)

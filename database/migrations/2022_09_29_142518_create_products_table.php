@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
+     * Выполняет миграцию для создания таблицы products
      * Run the migrations.
      *
      * @return void
@@ -25,6 +26,7 @@ return new class extends Migration
     }
 
     /**
+     * Отмена миграции
      * Reverse the migrations.
      *
      * @return void

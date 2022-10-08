@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
+     * Вывод всех продуктов(По 15 штук, для пользователя)
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
@@ -21,6 +22,7 @@ class ProductController extends Controller
     }
 
     /**
+     * Вызов шаблона для создания продукта
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
@@ -36,6 +38,8 @@ class ProductController extends Controller
     }
 
     /**
+     * Создание продукта
+     *
      * @param ProductCreateValidation $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -53,6 +57,7 @@ class ProductController extends Controller
     }
 
     /**
+     * Показ одного продукта(подробно, для пользователя)
      * Display the specified resource.
      *
      * @param  \App\Models\Product  $product
@@ -69,6 +74,7 @@ class ProductController extends Controller
     }
 
     /**
+     * Вызов шаблона для редактирования продукта
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Product  $product
@@ -87,6 +93,7 @@ class ProductController extends Controller
     }
 
     /**
+     * Редактирование продукта
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -108,6 +115,7 @@ class ProductController extends Controller
     }
 
     /**
+     * Удаление продукта
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Product  $product
@@ -119,11 +127,21 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index');
     }
 
+    /**
+     * Вывод всех продуктов на главный шаблон(по 25 штук, для пользоватлея)
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function indexMain(){
         $products = Product::simplePaginate(25);
         return view('users.product.main', compact('products'));
     }
 
+    /**
+     * Показ одного продукта(подробно, для админа)
+     *
+     * @param Product $product
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function firstProduct(Product $product){
         $breadcrumbs = [
             ['routeName' => 'welcome', 'name' => 'Главная страница'],
